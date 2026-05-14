@@ -65,8 +65,8 @@ const pool = require("./config/db.js");
     console.log("Banco conectado");
     // Se o banco de dados estiver ativo, ai sim o servidor será iniciado
     app.listen(port, () => {
-      console.log(`Link: http://localhost:${port}`);
       console.log(`Servidor funcionando na porta ${port}`);
+      console.log(`Link: http://localhost:${port}`);
     });
   } catch (erro) {
     // Se deu erro, avisa e encerra a tentativa
