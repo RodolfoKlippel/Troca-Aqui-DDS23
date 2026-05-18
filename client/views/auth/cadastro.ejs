@@ -1,20 +1,121 @@
 <!-- importa o header -->
 <%- include('../partials/header')  %>
 
-<main style="height: 300px;">
+<main>
     <div class="container">
-        <div class="card">
-            <form action="" method="post">
+        <div class="card" 
+        style="padding: 2rem; 
+        border: 2px solid var(--cor-borda);
+        box-shadow: 6px 6px 0px var(--cor-borda);
+        background-color: var(--cor-fundo);
+        ">
+            <h2 style="color: var(--cor-destaque);
+            text-align: center;
+            margin-bottom: 5px;">
+                <i class="fa-solid fa-user-plus"></i>
+                Criar Nova Conta
+            </h2>
+            <form action="/usuarios/cadastrar" method="post" enctype="multipart/form-data">
                 <!-- Caixinha de nome -->
-                <div>
-                    <label for="nome"> Nome </label>
-                    <input type="text" id="nome" name="nome">
-                </div> 
-                <!-- Caixinha de senha -->
-                <div>
-                    <label for="senha"> senha </label>
-                    <input type="password" id="senha" name="senha">
-                </div> 
+                <div class="row">
+                    <div class="col">
+                        <fieldset>
+                            <legend class="float-none w-auto">Informações pessoais</legend>
+                        </fieldset>
+
+                        <!-- CAIXA DE NOME -->
+
+                        <div class="form-group">
+                            <label for="nome">
+                                <i class="fa-solid fa-id-card"></i> Nome Completo
+                            </label>
+                            <input type="text" id="nome" name="nome" class="form-control" required>
+                        </div>
+
+                        <fieldset class="mt-3">
+                            <legend class="float-none w-auto">Informações de Login</legend>
+                        </fieldset>
+
+                        <!-- CAIXA DE Email -->
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fa-solid fa-envelope"></i> Email
+                            </label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <!-- CAIXA DE PERFIL -->
+
+                        <div class="form-group mt-3">
+                            <label for="perfil">
+                                <i class="fa-solid fa-users"></i> Qual seu Perfil
+                            </label>
+                            <select id="perfil" name="perfil" class="form-control" required>
+                                <option value="ofertante">Quero oferecer produtos</option>
+                                <option value="interessado">Busco produtos</option>
+                            </select>
+                        </div>
+
+                        <!-- CAIXINHA DE FOTO -->
+
+                        <div class="form-group mt-3">
+                            <label for="foto">
+                                <i class="fa-solid fa-camera"></i> Foto do Produto
+                            </label>
+                            <input type="file" id="foto" name="foto" class="form-control" accept="image/*" required>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+        
+                        <fieldset class="">
+                            <legend class="float-none w-auto text-white" style="pointer-events: none; user-select: none;">.</legend>
+                        </fieldset>
+
+                        <!-- CAIXA DE TELEFONE -->
+
+                        <div class="form-group">
+                            <label for="telefone">
+                                <i class="fa-solid fa-phone"></i> Telefone / Whatsapp
+                            </label>
+                            <input type="text" id="telefone" name="telefone" class="form-control" required>
+                        </div>
+
+                        <fieldset class="no-select">
+                            <legend class="float-none w-auto text-white" style="pointer-events: none; user-select: none;">.</legend>
+                        </fieldset>
+
+                        <!-- CAIXA DE SENHA -->
+
+                        <div class="form-group mt-3">
+                            <label for="senha" >
+                                <i class="fa-solid fa-lock"></i> Nome Completo
+                            </label>
+                            <input type="password" id="senha" name="senha" class="form-control" required>
+                        </div>
+
+                        <div id="preview-box" class="preview-container max-width: 100% mt-3" style="height: 230px;">
+                            <img src="..." alt="Foto do Usuário" id="preview-img" style="height: 230px; width: auto; ">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO DE ENVIO -->
+
+                <button type="submit" class="btn btn-secondary" style="width: 100%; margin-top: 15px;">
+                    <i class="fa-solid fa-check"></i> Cadastrar
+                </button>
+
+                <!-- OPÇÃO PARA IR PARA A PÁGINA DE LOGIN -->
+                 
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="/login" style="color: var(--cor-texto-principal); font-weight: bold; text-decoration: none;">
+                        Já tem conta?
+                        <span style="color: var(--cor-destaque); text-decoration: underline;">Faça Login</span>
+                    </a>
+                </div>
             </form>
         </div>
     </div>
